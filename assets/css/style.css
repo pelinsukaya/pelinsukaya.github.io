@@ -408,6 +408,11 @@ body.nav-active { overflow: hidden; }
   gap: 12px;
 }
 
+/* Round profile picture in hero */
+.hero .container > img.w-100 {
+  border-radius: var(--radius-8);
+}
+
 
 
 
@@ -840,18 +845,21 @@ textarea.input-field {
     height: auto;
     object-fit: contain;
     margin: 0;
+    border-radius: var(--radius-8);
   }
 
   /* Remove large left/bottom margins for Hypers image on desktop */
   .project-card-1 figure.card-content img {
     width: 100%;
     max-width: 520px;
+    border-radius: var(--radius-8);
   }
 
   /* Ensure Yeditepe logo is centered and not oversized */
   .project-card-2 .card-banner img {
     width: 100%;
     max-width: 520px;
+    border-radius: var(--radius-8);
   }
 
   /* Tidy up spacing within cards */
@@ -1026,4 +1034,27 @@ textarea.input-field {
   display: grid;
   place-items: center;
   z-index: 2;
+}
+
+/* Center Hypers and Yeditepe images on mobile and add border radius */
+@media (max-width: 768px) {
+  /* Center Hypers figure contents vertically & horizontally on mobile */
+  .project-card-1 figure.card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .project-card-1 figure.card-content img,
+  .project-card-2 .card-banner img {
+    display: block;
+    margin: 0 auto !important;
+    border-radius: var(--radius-8);
+  }
+
+  /* Override inline left margin on Hypers image */
+  .project-card-1 figure.card-content img {
+    margin: 0 auto 24px auto !important; /* centered with bottom space */
+  }
 }
