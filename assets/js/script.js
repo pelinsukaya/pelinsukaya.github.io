@@ -117,7 +117,8 @@ window.addEventListener("load", reveal);
       'background.visitHypers': 'Visit Website',
       'contact.title': "If you like what you see, let's work together.",
       'contact.text': 'I bring rapid solutions to make the life of my clients easier. Have any questions? Reach out to me from this contact form and I will get back to you shortly.',
-      'contact.sendMessage': 'Send message'
+      'contact.sendMessage': 'Send mail',
+      'background.university': 'Yeditepe University'
     },
     tr: {
       'nav.home': 'Ana Sayfa',
@@ -159,7 +160,8 @@ window.addEventListener("load", reveal);
       'background.visitHypers': 'Web Sitesini Ziyaret Et',
       'contact.title': 'Gördüklerinizi beğendiyseniz birlikte çalışalım.',
       'contact.text': 'Sorularınız mı var? Bu iletişim üzerinden bana ulaşın, en kısa sürede dönüş yapayım.',
-      'contact.sendMessage': 'Mesaj gönder'
+      'contact.sendMessage': 'Mail gönder',
+      'background.university': 'Yeditepe Üniversitesi'
     }
   };
 
