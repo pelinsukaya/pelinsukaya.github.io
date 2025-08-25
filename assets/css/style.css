@@ -918,7 +918,7 @@ textarea.input-field {
    * CONTACT
    */
 
-  .contact-card { gap: 150px; }
+  .contact-card { gap: 50px; }
 
 }
 
@@ -977,7 +977,11 @@ textarea.input-field {
 /* Mobile adjustment for language toggle button */
 @media (max-width: 991px) {
   #lang-toggle {
-    padding-top: 12px;
+    margin-top: 12px;
+  }
+
+  #cv-link {
+    margin-top: 12px;
   }
 }
 
