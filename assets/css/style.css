@@ -504,6 +504,20 @@ body.nav-active { overflow: hidden; }
 
 .project-card .btn-text:is(:hover, :focus-visible) { gap: 10px; }
 
+/* Speaking gallery */
+.speaking-gallery {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  overflow: visible;
+}
+
+.speaking-gallery img {
+  width: 100%;
+  border-radius: var(--radius-6);
+  box-shadow: var(--shadow-1);
+}
+
 
 
 
@@ -796,32 +810,79 @@ textarea.input-field {
     row-gap: 50px;
   }
 
-  .project .grid-list > li:nth-child(-n+2) { grid-column: 1 / 3; }
+  .project .grid-list > li:nth-child(-n+4) { grid-column: 1 / 3; }
 
   .project-card-1,
   .project-card-2 {
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
   }
 
-  :is(.project-card-1, .project-card-2) .card-content { width: 33.33%; }
+  :is(.project-card-1, .project-card-2) .card-content { width: 50%; }
 
-  :is(.project-card-1, .project-card-2) .card-banner { width: 66.66%; }
+  :is(.project-card-1, .project-card-2) .card-banner { width: 50%; }
 
   .project-card-1 .card-content { padding-block-end: var(--padding); }
 
   .project-card-2 .card-content { order: 1; }
 
-
-
-  /**
-   * CONTACT
-   */
-
-  .contact-card {
-    grid-template-columns: 0.8fr 1fr;
+  /* Center and contain images inside project cards on desktop */
+  .project-card .card-banner,
+  .project-card figure.card-content {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 90px;
+  }
+
+  .project-card img {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    object-fit: contain;
+    margin: 0;
+  }
+
+  /* Remove large left/bottom margins for Hypers image on desktop */
+  .project-card-1 figure.card-content img {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  /* Ensure Yeditepe logo is centered and not oversized */
+  .project-card-2 .card-banner img {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  /* Tidy up spacing within cards */
+  .project-card .card-content .card-text { margin-block-end: 16px; }
+
+  /* Speaking gallery grid on desktop */
+  .speaking-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    overflow: visible;
+  }
+
+  .speaking-gallery img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-8);
+    box-shadow: var(--shadow-1);
+    border: 1px solid var(--cadet-blue-crayola_a20);
+    transition: transform var(--transition-1), box-shadow var(--transition-1);
+    position: relative;
+    z-index: 1;
+    cursor: zoom-in;
+  }
+
+  .speaking-gallery img:is(:hover, :focus-visible) {
+    transform: scale(1.6);
+    z-index: 10;
+    object-fit: contain;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
   }
 
 }
@@ -911,4 +972,54 @@ textarea.input-field {
   }
 }
 
+}
+
+/* Mobile adjustment for language toggle button */
+@media (max-width: 991px) {
+  #lang-toggle {
+    padding-top: 12px;
+  }
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lightbox.active { display: flex; }
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+}
+
+.lightbox-image {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: var(--radius-8);
+  box-shadow: var(--shadow-2);
+  z-index: 1;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--white);
+  color: var(--charcoal);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-circle);
+  font-size: 2.4rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  z-index: 2;
 }
