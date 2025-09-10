@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aravind Law Firm - Expert legal services with excellence. Specializing in Family Law, Criminal Law, Real Estate, Business Law, and more.">
+    <meta name="keywords" content="law firm, legal services, attorney, lawyer, family law, criminal law, real estate law">
+    <title>Aravind Law Firm - Where Expertise Meets Excellence</title>
+    <link rel="shortcut icon" href="./Aravind_logo.jpg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#0a1f44',
+                        'gold': '#c49a5b',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .slider-container { position: relative; overflow: hidden; }
+        .slider-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .slider-slide { min-width: 100%; }
+
+        /* Loading Animation Styles */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a1f44 0%, #1e3a8a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+
+        .loader-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(196, 154, 91, 0.3);
+            border-top: 4px solid #c49a5b;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-text {
+            color: #c49a5b;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .main-content {
+            opacity: 0;
+            transition: opacity 0.8s ease-in;
+        }
+
+        .main-content.loaded {
+            opacity: 1;
+        }
+
+        /* Disclaimer Popup Styles */
+        .disclaimer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            backdrop-filter: blur(5px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .disclaimer-popup {
+            background: white;
+            max-width: 600px;
+            max-height: 80vh;
+            margin: 20px;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: popupSlideIn 0.4s ease-out;
+        }
+
+        .disclaimer-header {
+            background: linear-gradient(135deg, #0a1f44 0%, #1e3a8a 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .disclaimer-content {
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .disclaimer-buttons {
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .disclaimer-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .btn-agree {
+            background: #c49a5b;
+            color: white;
+        }
+
+        .btn-agree:hover {
+            background: #b8904f;
+            transform: translateY(-2px);
+        }
+
+        .btn-disagree {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-disagree:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+
+        @keyframes popupSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .disclaimer-overlay.hidden {
+            display: none;
+        }
+
+        /* Animation Classes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .animation-delay-300 { animation-delay: 0.3s; }
+        .animation-delay-600 { animation-delay: 0.6s; }
+        .animation-delay-900 { animation-delay: 0.9s; }
+
+        /* Scroll Animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-animate.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Card Hover Effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Mobile-specific improvements */
+        @media (max-width: 640px) {
+            .hero-title {
+                line-height: 1.1;
+                letter-spacing: -0.02em;
+            }
+
+            .hero-subtitle {
+                line-height: 1.3;
+            }
+
+            .hero-description {
+                line-height: 1.6;
+                font-size: 1rem;
+            }
+
+            /* Ensure proper spacing on very small screens */
+            .hero-content {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            /* Adjust button for mobile */
+            .hero-button {
+                font-size: 1.125rem;
+                padding: 0.875rem 1.5rem;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.1;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        /* Modern Navigation Button Styling */
+        .nav-consultation-btn {
+            background: linear-gradient(135deg, #0a1f44 0%, #1e3a8a 50%, #1e40af 100%);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 8px 25px rgba(10, 31, 68, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-consultation-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-consultation-btn:hover::before {
+            left: 100%;
+        }
+
+        .nav-consultation-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            background: linear-gradient(135deg, #0a1f44 0%, #1e3a8a 50%, #1e40af 100%);
+            box-shadow:
+                0 12px 35px rgba(10, 31, 68, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .nav-consultation-btn:active {
+            transform: translateY(0) scale(1.02);
+            box-shadow:
+                0 6px 20px rgba(196, 154, 91, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile version of the button */
+        .nav-consultation-btn-mobile {
+            background: linear-gradient(135deg, #0a1f44 0%, #1e3a8a 50%, #1e40af 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(10, 31, 68, 0.3);
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .nav-consultation-btn-mobile:hover {
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #daa520 100%);
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(196, 154, 91, 0.4);
+        }
+
+        /* Universal Modern Button Styling */
+        .modern-btn {
+            background: linear-gradient(135deg, #0a1f44 0%, #1e3a8a 50%, #1e40af 100%);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 8px 25px rgba(10, 31, 68, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .modern-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .modern-btn:hover::before {
+            left: 100%;
+        }
+
+        .modern-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #daa520 100%);
+            box-shadow:
+                0 12px 35px rgba(196, 154, 91, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .modern-btn:active {
+            transform: translateY(0) scale(1.02);
+            box-shadow:
+                0 6px 20px rgba(10, 31, 68, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        /* Large button variant */
+        .modern-btn-lg {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            border-radius: 60px;
+        }
+
+        /* Small button variant */
+        .modern-btn-sm {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            border-radius: 40px;
+        }
+
+        /* Full width variant */
+        .modern-btn-full {
+            width: 100%;
+        }
+
+        /* Circular button variant for navigation arrows */
+        .modern-btn-circle {
+            border-radius: 50%;
+            padding: 16px;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Disclaimer button variants */
+        .modern-btn-agree {
+            background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%);
+        }
+
+        .modern-btn-agree:hover {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #059669 100%);
+        }
+
+        .modern-btn-disagree {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #b91c1c 100%);
+        }
+
+        .modern-btn-disagree:hover {
+            background: linear-gradient(135deg, #ef4444 0%, #f87171 50%, #dc2626 100%);
+        }
+
+        /* WhatsApp button specific styling */
+        .modern-btn-whatsapp:hover {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 50%, #075e54 100%) !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Loading Animation -->
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+        <div class="loader-text">Loading...</div>
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 shadow-lg">
+        <!-- Main Navigation -->
+        <div class="bg-gold text-navy">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center py-3">
+                    <!-- Logo -->
+                    <div class="flex items-center">
+                        <img src="./Aravind_logo.jpg" alt="Aravind Law Firm Logo" class="w-12 h-12 rounded-full mr-3 object-cover">
+                        <div class="text-xl font-bold" data-lang-en="Aravind Law Firm" data-lang-tr="Aravind Hukuk Bürosu">Aravind Law Firm</div>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center space-x-4">
+                        <a href="#home" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="Home" data-lang-tr="Ana Sayfa">Home</a>
+                        <a href="#about" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="About Us" data-lang-tr="Hakkımızda">About Us</a>
+                        <a href="#practice-areas" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="Practice Areas" data-lang-tr="Uzmanlık Alanları">Practice Areas</a>
+                        <a href="#founder" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="Who Are We" data-lang-tr="Kurucularımız">Who Are We</a>
+                        <a href="#contact" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="Contact Us" data-lang-tr="İletişim">Contact Us</a>
+                    </div>
+
+                    <!-- Language Toggle (hidden on mobile) -->
+                    <div class="ml-4 flex items-center hidden lg:flex">
+                        <button id="lang-en" class="px-3 py-1 rounded bg-navy text-gold font-bold mr-2">EN</button>
+                        <button id="lang-tr" class="px-3 py-1 rounded bg-gold text-navy font-bold">TR</button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="lg:hidden">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden lg:hidden pb-4">
+                    <a href="#home" class="block py-2 hover:text-white transition" data-lang-en="Home" data-lang-tr="Ana Sayfa">Home</a>
+                    <a href="#about" class="block py-2 hover:text-white transition" data-lang-en="About Us" data-lang-tr="Hakkımızda">About Us</a>
+                    <a href="#practice-areas" class="block py-2 hover:text-white transition" data-lang-en="Practice Areas" data-lang-tr="Uzmanlık Alanları">Practice Areas</a>
+                    <a href="#founder" class="block py-2 hover:text-white transition" data-lang-en="Who Are We" data-lang-tr="Kurucularımız">Who Are We</a>
+                    <a href="#contact" class="block py-2 hover:text-white transition" data-lang-en="Contact Us" data-lang-tr="İletişim">Contact Us</a>
+                    <div class="flex items-center mt-4">
+                        <button id="lang-en-mobile" class="px-3 py-1 rounded bg-navy text-gold font-bold mr-2">EN</button>
+                        <button id="lang-tr-mobile" class="px-3 py-1 rounded bg-gold text-navy font-bold">TR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen mt-16 md:mt-16 overflow-hidden">
+        <div class="slider-container h-full">
+            <div class="slider-track h-full" id="hero-slider">
+                <!-- Slide 1 -->
+                <div class="slider-slide relative h-full">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/70 z-10"></div>
+                    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                         style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                    </div>
+                    <div class="relative z-20 h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
+                        <div class="text-center text-white w-full max-w-4xl mx-auto hero-content">
+                            <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight animate-fade-in-up">
+                                <span class="block" data-lang-en="Where Expertise" data-lang-tr="Uzmanlık Nerede">Where Expertise</span>
+                                <span class="block" data-lang-en="Meets Excellence" data-lang-tr="Mükemmellik ile Buluşur">Meets Excellence</span>
+                            </h1>
+                            <h2 class="hero-subtitle text-xl sm:text-2xl md:text-3xl mb-6 sm:mb-8 text-gold animate-fade-in-up animation-delay-300" data-lang-en="at Aravind Law Firm" data-lang-tr="Aravind Hukuk Bürosu'nda">at Aravind Law Firm</h2>
+                            <p class="hero-description text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-200 leading-relaxed max-w-3xl mx-auto animate-fade-in-up animation-delay-600" data-lang-en="Providing exceptional legal services with integrity, professionalism, and dedication to our clients' success." data-lang-tr="Müşterilerimizin başarısı için dürüstlük, profesyonellik ve adanmışlık ile olağanüstü hukuk hizmetleri sunuyoruz.">Providing exceptional legal services with integrity, professionalism, and dedication to our clients' success.</p>
+                            <button onclick="document.getElementById('contact').scrollIntoView()"
+                                    class="modern-btn modern-btn-lg animate-fade-in-up animation-delay-900 w-full sm:w-auto"
+                                    data-lang-en="Consultation" data-lang-tr="Danışmanlık">Consultation</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slider-slide relative h-full">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/70 z-10"></div>
+                    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                         style="background-image: url('https://t3.ftcdn.net/jpg/02/14/12/32/360_F_214123202_KGIiCLK8MZaYN6jKfLcteCZLqNTAtmJ3.jpg');">
+                    </div>
+                    <div class="relative z-20 h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
+                        <div class="text-center text-white w-full max-w-4xl mx-auto hero-content">
+                                <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
+                                    <span class="block" data-lang-en="Professional" data-lang-tr="Profesyonel">Professional</span>
+                                    <span class="block" data-lang-en="Legal Services" data-lang-tr="Hukuk Hizmetleri">Legal Services</span>
+                                </h1>
+                                <h2 class="hero-subtitle text-xl sm:text-2xl md:text-3xl mb-6 sm:mb-8 text-gold" data-lang-en="Trusted by Thousands" data-lang-tr="Binlerce Kişi Tarafından Güvenilen">Trusted by Thousands</h2>
+                                <p class="hero-description text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-200 leading-relaxed max-w-3xl mx-auto" data-lang-en="Over 15 years of experience in providing comprehensive legal solutions for individuals and businesses." data-lang-tr="Bireyler ve işletmeler için kapsamlı hukuk çözümleri sunmada 15 yılı aşkın deneyim.">Over 15 years of experience in providing comprehensive legal solutions for individuals and businesses.</p>
+                                <button onclick="document.getElementById('contact').scrollIntoView()"
+                                        class="modern-btn modern-btn-lg w-full sm:w-auto"
+                                        data-lang-en="Get Started Today" data-lang-tr="Hemen Başlayın">
+                                    Get Started Today
+                                </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button class="modern-btn modern-btn-circle absolute left-6 top-1/2 transform -translate-y-1/2 z-30 group hidden md:flex" onclick="previousSlide()">
+                <i class="fas fa-chevron-left text-xl group-hover:scale-110 transition-transform"></i>
+            </button>
+            <button class="modern-btn modern-btn-circle absolute right-6 top-1/2 transform -translate-y-1/2 z-30 group hidden md:flex" onclick="nextSlide()">
+                <i class="fas fa-chevron-right text-xl group-hover:scale-110 transition-transform"></i>
+            </button>
+
+            <!-- Slide Indicators -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
+                <button class="modern-btn-sm w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="goToSlide(0)" id="indicator-0"></button>
+                <button class="modern-btn-sm w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="goToSlide(1)" id="indicator-1"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="flex justify-center px-4">
+            <div class="max-w-6xl w-full bg-white rounded-2xl shadow-2xl p-12 scroll-animate">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="scroll-animate">
+                        <h2 class="text-4xl font-bold text-navy mb-6" data-lang-en="About Our Firm" data-lang-tr="Hukuk Büromuz Hakkında">About Our Firm</h2>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed" data-lang-en="At Aravind Law Firm, we are committed to providing exceptional legal services with integrity, professionalism, and dedication. Our team of experienced attorneys brings decades of combined experience to serve our clients' diverse legal needs." data-lang-tr="Aravind Hukuk Bürosu olarak, dürüstlük, profesyonellik ve adanmışlık ile olağanüstü hukuk hizmetleri sunmaya kararlıyız. Deneyimli avukat ekibimiz, müşterilerimizin çeşitli hukuki ihtiyaçlarına hizmet etmek için onlarca yıllık birikime sahiptir.">
+                            At Aravind Law Firm, we are committed to providing exceptional legal services with integrity,
+                            professionalism, and dedication. Our team of experienced attorneys brings decades of combined
+                            experience to serve our clients' diverse legal needs.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed" data-lang-en="We believe in building lasting relationships with our clients through transparent communication, strategic thinking, and relentless advocacy for their interests." data-lang-tr="Müşterilerimizle kalıcı ilişkiler kurmaya, şeffaf iletişim, stratejik düşünce ve çıkarları için kararlı savunuculuk ile inanıyoruz.">
+                            We believe in building lasting relationships with our clients through transparent communication,
+                            strategic thinking, and relentless advocacy for their interests.
+                        </p>
+                        <div class="mt-8 grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gold" data-lang-en="15+" data-lang-tr="15+">15+</div>
+                                <div class="text-gray-600" data-lang-en="Years Experience" data-lang-tr="Yıllık Deneyim">Years Experience</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gold" data-lang-en="1250+" data-lang-tr="1250+">1250+</div>
+                                <div class="text-gray-600" data-lang-en="Cases Won" data-lang-tr="Kazanılan Dava">Cases Won</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scroll-animate">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                 alt="Attorney Team"
+                                 class="w-full h-96 object-cover rounded-lg shadow-lg">
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy/20 to-transparent rounded-lg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Areas -->
+    <section id="practice-areas" class="py-20 bg-gray-50">
+        <div class="flex justify-center px-4">
+            <div class="max-w-6xl w-full bg-white rounded-2xl shadow-2xl p-12 scroll-animate">
+                <h2 class="text-4xl font-bold text-center text-navy mb-12 scroll-animate" data-lang-en="Our Practice Areas" data-lang-tr="Uzmanlık Alanlarımız">Our Practice Areas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+                    <div class="bg-gradient-to-br from-white to-gray-50 p-8 md:p-8 rounded-lg md:rounded-xl shadow-lg card-hover text-center border-2 border-gray-200 hover:border-gold scroll-animate transition-all duration-300 aspect-square md:aspect-auto">
+                        <div class="w-20 h-20 md:w-16 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-6">
+                            <i class="fas fa-home text-4xl md:text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-xl md:text-xl font-bold text-navy mb-4 md:mb-4" data-lang-en="Family Law" data-lang-tr="Aile Hukuku">Family Law</h3>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed hidden md:block" data-lang-en="Divorce, custody, adoption, and family-related legal matters handled with care and expertise." data-lang-tr="Boşanma, velayet, evlat edinme ve aileyle ilgili hukuki konular özen ve uzmanlıkla ele alınır.">Divorce, custody, adoption, and family-related legal matters handled with care and expertise.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed md:hidden" data-lang-en="Family legal matters with expertise." data-lang-tr="Aile hukuku konularında uzmanlık.">Family legal matters with expertise.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-white to-gray-50 p-8 md:p-8 rounded-lg md:rounded-xl shadow-lg card-hover text-center border-2 border-gray-200 hover:border-gold scroll-animate transition-all duration-300 aspect-square md:aspect-auto">
+                        <div class="w-20 h-20 md:w-16 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-6">
+                            <i class="fas fa-gavel text-4xl md:text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-xl md:text-xl font-bold text-navy mb-4 md:mb-4" data-lang-en="Criminal Law" data-lang-tr="Ceza Hukuku">Criminal Law</h3>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed hidden md:block" data-lang-en="Aggressive defense for criminal charges with a track record of successful outcomes." data-lang-tr="Başarılı sonuçlarla ceza davalarında etkili savunma.">Aggressive defense for criminal charges with a track record of successful outcomes.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed md:hidden" data-lang-en="Criminal defense with proven results." data-lang-tr="Kanıtlanmış sonuçlarla ceza savunması.">Criminal defense with proven results.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-white to-gray-50 p-8 md:p-8 rounded-lg md:rounded-xl shadow-lg card-hover text-center border-2 border-gray-200 hover:border-gold scroll-animate transition-all duration-300 aspect-square md:aspect-auto">
+                        <div class="w-20 h-20 md:w-16 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-6">
+                            <i class="fas fa-building text-4xl md:text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-xl md:text-xl font-bold text-navy mb-4 md:mb-4" data-lang-en="Real Estate Law" data-lang-tr="Gayrimenkul Hukuku">Real Estate Law</h3>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed hidden md:block" data-lang-en="Property transactions, disputes, and real estate legal services for buyers and sellers." data-lang-tr="Alıcılar ve satıcılar için gayrimenkul işlemleri, anlaşmazlıklar ve hukuki hizmetler.">Property transactions, disputes, and real estate legal services for buyers and sellers.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed md:hidden" data-lang-en="Property transactions and disputes." data-lang-tr="Gayrimenkul işlemleri ve anlaşmazlıklar.">Property transactions and disputes.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-white to-gray-50 p-8 md:p-8 rounded-lg md:rounded-xl shadow-lg card-hover text-center border-2 border-gray-200 hover:border-gold scroll-animate transition-all duration-300 aspect-square md:aspect-auto">
+                        <div class="w-20 h-20 md:w-16 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-6">
+                            <i class="fas fa-briefcase text-4xl md:text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-xl md:text-xl font-bold text-navy mb-4 md:mb-4" data-lang-en="Business Law" data-lang-tr="Ticaret Hukuku">Business Law</h3>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed hidden md:block" data-lang-en="Corporate formation, contracts, compliance, and business litigation services." data-lang-tr="Şirket kuruluşu, sözleşmeler, uyumluluk ve ticari dava hizmetleri.">Corporate formation, contracts, compliance, and business litigation services.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed md:hidden" data-lang-en="Corporate and business services." data-lang-tr="Şirket ve ticari hizmetler.">Corporate and business services.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-white to-gray-50 p-8 md:p-8 rounded-lg md:rounded-xl shadow-lg card-hover text-center border-2 border-gray-200 hover:border-gold scroll-animate transition-all duration-300 aspect-square md:aspect-auto">
+                        <div class="w-20 h-20 md:w-16 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-6">
+                            <i class="fas fa-graduation-cap text-4xl md:text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-xl md:text-xl font-bold text-navy mb-4 md:mb-4" data-lang-en="Education Law" data-lang-tr="Eğitim Hukuku">Education Law</h3>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed hidden md:block" data-lang-en="Student rights, institutional compliance, and educational legal matters." data-lang-tr="Öğrenci hakları, kurumsal uyumluluk ve eğitimle ilgili hukuki konular.">Student rights, institutional compliance, and educational legal matters.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed md:hidden" data-lang-en="Student rights and compliance." data-lang-tr="Öğrenci hakları ve uyumluluk.">Student rights and compliance.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-white to-gray-50 p-8 md:p-8 rounded-lg md:rounded-xl shadow-lg card-hover text-center border-2 border-gray-200 hover:border-gold scroll-animate transition-all duration-300 aspect-square md:aspect-auto">
+                        <div class="w-20 h-20 md:w-16 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-6">
+                            <i class="fas fa-user-injured text-4xl md:text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-xl md:text-xl font-bold text-navy mb-4 md:mb-4" data-lang-en="Personal Injury" data-lang-tr="Kişisel Yaralanma">Personal Injury</h3>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed hidden md:block" data-lang-en="Compensation for accidents, medical malpractice, and personal injury claims." data-lang-tr="Kaza, tıbbi hata ve kişisel yaralanma talepleri için tazminat.">Compensation for accidents, medical malpractice, and personal injury claims.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed md:hidden" data-lang-en="Accident and injury compensation." data-lang-tr="Kaza ve yaralanma tazminatı.">Accident and injury compensation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="founder" class="py-20">
+        <div class="flex justify-center px-4">
+            <div class="max-w-6xl w-full bg-white rounded-2xl shadow-2xl p-12 scroll-animate">
+                <h2 class="text-4xl font-bold text-center text-navy mb-12 scroll-animate" data-lang-en="Who Are We" data-lang-tr="Biz Kimiz">Who Are We</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Founder Profile -->
+                    <div class="text-center scroll-animate">
+                        <div class="w-72 h-72 mx-auto mb-8 relative group cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                 alt="Ventrapragada Aravind"
+                                 class="w-full h-full object-cover rounded-full shadow-xl border-4 border-gold transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-t from-navy/20 to-transparent transition-all duration-500"></div>
+                        </div>
+                        <div class="flex justify-center space-x-4 mb-6">
+                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
+                                <i class="fas fa-award text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
+                            </div>
+                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
+                                <i class="fas fa-graduation-cap text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
+                            </div>
+                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
+                                <i class="fas fa-balance-scale text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scroll-animate">
+                        <h3 class="text-3xl font-bold text-navy mb-6" data-lang-en="Ventrapragada Aravind" data-lang-tr="Ventrapragada Aravind">Ventrapragada Aravind</h3>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed" data-lang-en="With over 15 years of experience in the legal field, Aravind Kumar founded this firm with a vision to provide accessible, high-quality legal services to individuals and businesses. His expertise spans multiple practice areas, and he is known for his strategic approach and dedication to client success." data-lang-tr="Hukuk alanında 15 yılı aşkın deneyime sahip olan Aravind Kumar, bu firmayı bireylere ve işletmelere erişilebilir, yüksek kaliteli hukuk hizmetleri sunma vizyonuyla kurdu. Uzmanlığı birçok alana yayılır ve stratejik yaklaşımı ile müşteri başarısına olan bağlılığıyla tanınır.">
+                            With over 15 years of experience in the legal field, Aravind Kumar founded this firm with a vision
+                            to provide accessible, high-quality legal services to individuals and businesses. His expertise spans
+                            multiple practice areas, and he is known for his strategic approach and dedication to client success.
+                        </p>
+                        <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                            <h4 class="font-bold text-navy mb-3" data-lang-en="Credentials & Achievements" data-lang-tr="Yetkinlikler & Başarılar">Credentials & Achievements</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-gold mr-2"></i><span data-lang-en="J.D. from National Law School" data-lang-tr="Ulusal Hukuk Fakültesi'nden J.D.">J.D. from National Law School</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-gold mr-2"></i><span data-lang-en="Member of the State Bar Association" data-lang-tr="Eyalet Barosu Üyesi">Member of the State Bar Association</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-gold mr-2"></i><span data-lang-en="Top Attorney - Legal Excellence Awards 2023" data-lang-tr="En İyi Avukat - Hukuk Mükemmellik Ödülleri 2023">Top Attorney - Legal Excellence Awards 2023</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-gold mr-2"></i><span data-lang-en="15+ Years of Legal Experience" data-lang-tr="15+ Yıllık Hukuk Deneyimi">15+ Years of Legal Experience</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- New Person Profile -->
+                    <div class="text-center scroll-animate">
+                        <div class="w-72 h-72 mx-auto mb-8 relative group cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                 alt="Priya Sharma"
+                                 class="w-full h-full object-cover rounded-full shadow-xl border-4 border-gold transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-t from-navy/20 to-transparent transition-all duration-500"></div>
+                        </div>
+                        <div class="flex justify-center space-x-4 mb-6">
+                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
+                                <i class="fas fa-award text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
+                            </div>
+                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
+                                <i class="fas fa-graduation-cap text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
+                            </div>
+                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
+                                <i class="fas fa-balance-scale text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scroll-animate">
+                        <h3 class="text-3xl font-bold text-navy mb-6" data-lang-en="Priya Sharma" data-lang-tr="Priya Sharma">Priya Sharma</h3>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed" data-lang-en="Priya Sharma is a senior partner at Aravind Law Firm, specializing in corporate and family law. With over 10 years of experience, Priya is recognized for her client advocacy and innovative legal solutions." data-lang-tr="Priya Sharma, Aravind Hukuk Bürosu'nda kıdemli ortaktır ve kurumsal ile aile hukuku alanında uzmandır. 10 yılı aşkın deneyimiyle, Priya müşteri savunuculuğu ve yenilikçi hukuk çözümleriyle tanınır.">
+                            Priya Sharma is a senior partner at Aravind Law Firm, specializing in corporate and family law. With over 10 years of experience, Priya is recognized for her client advocacy and innovative legal solutions.
+                        </p>
+                        <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                            <h4 class="font-bold text-navy mb-3" data-lang-en="Credentials & Achievements" data-lang-tr="Yetkinlikler & Başarılar">Credentials & Achievements</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-gold mr-2"></i><span data-lang-en="LL.M. from Delhi University" data-lang-tr="Delhi Üniversitesi'nden LL.M.">LL.M. from Delhi University</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-gold mr-2"></i><span data-lang-en="Member of the Corporate Law Society" data-lang-tr="Kurumsal Hukuk Derneği Üyesi">Member of the Corporate Law Society</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-gold mr-2"></i><span data-lang-en="Best Family Lawyer Award 2022" data-lang-tr="En İyi Aile Avukatı Ödülü 2022">Best Family Lawyer Award 2022</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-gold mr-2"></i><span data-lang-en="10+ Years of Legal Experience" data-lang-tr="10+ Yıllık Hukuk Deneyimi">10+ Years of Legal Experience</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="contact" class="py-20 mt-20 bg-gradient-to-br from-navy to-blue-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-10 left-10 w-20 h-20 bg-gold/10 rounded-full"></div>
+            <div class="absolute bottom-20 right-20 w-32 h-32 bg-gold/5 rounded-full"></div>
+            <div class="absolute top-1/2 right-10 w-16 h-16 bg-gold/10 rounded-full"></div>
+        </div>
+        <div class="relative z-10 flex justify-center px-4">
+            <div class="max-w-6xl w-full">
+                <div class="text-center mb-12 scroll-animate">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4" data-lang-en="Book Your Consultation" data-lang-tr="Danışmanlık Randevunuzu Alın">Book Your Consultation</h2>
+                    <p class="text-xl text-gray-200" data-lang-en="Get expert legal advice tailored to your needs" data-lang-tr="İhtiyacınıza özel uzman hukuk danışmanlığı alın">Get expert legal advice tailored to your needs</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Contact Info -->
+                    <div class="text-white scroll-animate">
+                        <h3 class="text-2xl font-bold mb-8 text-gold" data-lang-en="Get in Touch" data-lang-tr="Bizimle İletişime Geçin">Get in Touch</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone text-gold"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold" data-lang-en="Call Us" data-lang-tr="Bizi Arayın">Call Us</div>
+                                    <div class="text-gray-300">+919100499431</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-gold"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold" data-lang-en="Email Us" data-lang-tr="E-posta Gönderin">Email Us</div>
+                                    <div class="text-gray-300">contact@aravindlawfirm.com</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-clock text-gold"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold" data-lang-en="Office Hours" data-lang-tr="Çalışma Saatleri">Office Hours</div>
+                                    <div class="text-gray-300" data-lang-en="Mon - Fri: 9:00 AM - 6:00 PM" data-lang-tr="Pzt - Cum: 09:00 - 18:00">Mon - Fri: 9:00 AM - 6:00 PM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="scroll-animate">
+                        <form id="appointment-form" class="bg-white/10 backdrop-blur-sm p-10 rounded-2xl shadow-2xl border border-white/20">
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-white font-semibold mb-2" data-lang-en="Name *" data-lang-tr="Ad *">Name *</label>
+                                    <input type="text" id="name" required class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300" placeholder="Your Name" data-lang-en="Your Name" data-lang-tr="Adınız">
+                                </div>
+                                <div>
+                                    <label class="block text-white font-semibold mb-2" data-lang-en="Email *" data-lang-tr="E-posta *">Email *</label>
+                                    <input type="email" id="email" required class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300" placeholder="your@email.com" data-lang-en="your@email.com" data-lang-tr="eposta@adresiniz.com">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-white font-semibold mb-2" data-lang-en="Phone *" data-lang-tr="Telefon *">Phone *</label>
+                                <input type="tel" id="phone" required class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300" placeholder="+91 XXXXX XXXXX" data-lang-en="+91 XXXXX XXXXX" data-lang-tr="+90 XXXXX XXXXX">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-white font-semibold mb-2" data-lang-en="Legal Matter" data-lang-tr="Hukuki Konu">Legal Matter</label>
+                                <select class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white" style="color-scheme: dark;">
+                                    <option value="" class="bg-navy text-white" data-lang-en="Select Practice Area" data-lang-tr="Uzmanlık Alanı Seçin">Select Practice Area</option>
+                                    <option value="family" class="bg-navy text-white hover:bg-gold hover:text-navy" data-lang-en="Family Law" data-lang-tr="Aile Hukuku">Family Law</option>
+                                    <option value="criminal" class="bg-navy text-white hover:bg-gold hover:text-navy" data-lang-en="Criminal Law" data-lang-tr="Ceza Hukuku">Criminal Law</option>
+                                    <option value="real-estate" class="bg-navy text-white hover:bg-gold hover:text-navy" data-lang-en="Real Estate Law" data-lang-tr="Gayrimenkul Hukuku">Real Estate Law</option>
+                                    <option value="business" class="bg-navy text-white hover:bg-gold hover:text-navy" data-lang-en="Business Law" data-lang-tr="Ticaret Hukuku">Business Law</option>
+                                    <option value="education" class="bg-navy text-white hover:bg-gold hover:text-navy" data-lang-en="Education Law" data-lang-tr="Eğitim Hukuku">Education Law</option>
+                                    <option value="personal-injury" class="bg-navy text-white hover:bg-gold hover:text-navy" data-lang-en="Personal Injury" data-lang-tr="Kişisel Yaralanma">Personal Injury</option>
+                                </select>
+                            </div>
+                            <div class="mb-8">
+                                <label class="block text-white font-semibold mb-2" data-lang-en="Message" data-lang-tr="Mesaj">Message</label>
+                                <textarea id="message" rows="4" class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300" placeholder="Tell us about your legal needs..." data-lang-en="Tell us about your legal needs..." data-lang-tr="Hukuki ihtiyaçlarınızı anlatın..."></textarea>
+                            </div>
+                            <button type="submit" class="modern-btn modern-btn-lg modern-btn-full modern-btn-whatsapp flex items-center justify-center" data-lang-en="Send via WhatsApp" data-lang-tr="WhatsApp ile Gönder">
+                                <i class="fab fa-whatsapp mr-3 text-2xl"></i>
+                                Send via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-gold mb-4" data-lang-en="About Us" data-lang-tr="Hakkımızda">About Us</h3>
+                    <p class="text-gray-300" data-lang-en="Aravind Law Firm provides expert legal services with integrity and dedication. We are committed to achieving the best outcomes for our clients." data-lang-tr="Aravind Hukuk Bürosu, dürüstlük ve adanmışlıkla uzman hukuk hizmetleri sunar. Müşterilerimiz için en iyi sonuçları elde etmeye kararlıyız.">
+                        Aravind Law Firm provides expert legal services with integrity and dedication.
+                        We are committed to achieving the best outcomes for our clients.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gold mb-4" data-lang-en="Contact Info" data-lang-tr="İletişim Bilgileri">Contact Info</h3>
+                    <div class="space-y-2 text-gray-300">
+                        <p data-lang-en="123 Legal Street, City, State 12345" data-lang-tr="123 Hukuk Sokak, Şehir, Ülke 12345"><i class="fas fa-map-marker-alt mr-2"></i>123 Legal Street, City, State 12345</p>
+                        <p data-lang-en="+1 (555) 123-4567" data-lang-tr="+90 (555) 123-4567"><i class="fas fa-phone mr-2"></i>+1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope mr-2"></i><a href="mailto:info@aravindlawfirm.com" class="hover:text-gold transition" data-lang-en="info@aravindlawfirm.com" data-lang-tr="info@aravindlawfirm.com">info@aravindlawfirm.com</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gold mb-4" data-lang-en="Quick Links" data-lang-tr="Hızlı Linkler">Quick Links</h3>
+                    <div class="space-y-2">
+                        <a href="#home" class="block text-gray-300 hover:text-gold transition" data-lang-en="Home" data-lang-tr="Ana Sayfa">Home</a>
+                        <a href="#about" class="block text-gray-300 hover:text-gold transition" data-lang-en="About" data-lang-tr="Hakkında">About</a>
+                        <a href="#founder" class="block text-gray-300 hover:text-gold transition" data-lang-en="Founder" data-lang-tr="Kurucular">Founder</a>
+                        <a href="#contact" class="block text-gray-300 hover:text-gold transition" data-lang-en="Contact" data-lang-tr="İletişim">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gold mb-4" data-lang-en="Practice Areas" data-lang-tr="Uzmanlık Alanları">Practice Areas</h3>
+                    <div class="space-y-2 text-gray-300">
+                        <p data-lang-en="Family Law" data-lang-tr="Aile Hukuku">Family Law</p>
+                        <p data-lang-en="Criminal Law" data-lang-tr="Ceza Hukuku">Criminal Law</p>
+                        <p data-lang-en="Real Estate Law" data-lang-tr="Gayrimenkul Hukuku">Real Estate Law</p>
+                        <p data-lang-en="Business Law" data-lang-tr="Ticaret Hukuku">Business Law</p>
+                        <p data-lang-en="Education Law" data-lang-tr="Eğitim Hukuku">Education Law</p>
+                        <p data-lang-en="Personal Injury" data-lang-tr="Kişisel Yaralanma">Personal Injury</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p data-lang-en="&copy; 2025 Aravind Law Firm. All Rights Reserved." data-lang-tr="&copy; 2025 Aravind Hukuk Bürosu. Tüm Hakları Saklıdır.">&copy; 2025 Aravind Law Firm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919100499431?text=Hello%20Aravind%20Law%20Firm%21%20%F0%9F%8F%9B%EF%B8%8F%0A%0AI%20am%20interested%20in%20your%20legal%20services%20and%20would%20like%20to%20schedule%20a%20consultation.%20%0A%0ACould%20you%20please%20provide%20me%20with%20more%20information%20about%3A%0A%E2%80%A2%20Your%20practice%20areas%0A%E2%80%A2%20Consultation%20process%0A%E2%80%A2%20Fee%20structure%0A%0AThank%20you%20for%20your%20time.%20I%20look%20forward%20to%20hearing%20from%20you.%0A%0ABest%20regards" target="_blank"
+       class="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full shadow-2xl hover:from-green-600 hover:to-green-700 hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center animate-pulse">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hero Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slider-slide');
+        const totalSlides = slides.length;
+        const slider = document.getElementById('hero-slider');
+
+        function updateIndicators() {
+            document.querySelectorAll('[id^="indicator-"]').forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('bg-white');
+                    indicator.classList.remove('bg-white/50');
+                } else {
+                    indicator.classList.add('bg-white/50');
+                    indicator.classList.remove('bg-white');
+                }
+            });
+        }
+
+        function showSlide(index) {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            updateIndicators();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function previousSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Initialize indicators
+        updateIndicators();
+
+        // Auto-slide every 10 seconds
+        setInterval(nextSlide, 10000);
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('[data-count]');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current);
+                }, 16);
+            });
+        }
+
+        // Trigger counter animation when section is visible
+        const counterSection = document.querySelector('.bg-navy');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        observer.observe(counterSection);
+
+        // Scroll Animations
+        function initScrollAnimations() {
+            const animateElements = document.querySelectorAll('.scroll-animate');
+
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Initialize scroll animations
+        initScrollAnimations();
+
+        // WhatsApp Form Submission
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Create a clean WhatsApp message
+            const whatsappMessage = `*New Form from Website*
+
+            👤 *Name:* ${name}
+            📧 *Email:* ${email}
+            📱 *Phone:* ${phone}
+            � *Message:* ${message}`;
+
+            const whatsappURL = `https://wa.me/919100499431?text=${encodeURIComponent(whatsappMessage)}`;
+
+            window.open(whatsappURL, '_blank');
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Instantly hide loader and show main content on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('loader');
+            const mainContent = document.getElementById('mainContent');
+            if (loader) loader.classList.add('hidden');
+            if (mainContent) mainContent.classList.add('loaded');
+
+            // Language toggle logic
+            function setLanguage(lang) {
+                document.querySelectorAll('[data-lang-en]').forEach(el => {
+                    el.textContent = lang === 'tr' ? (el.getAttribute('data-lang-tr') || el.textContent) : el.getAttribute('data-lang-en');
+                });
+            }
+            document.getElementById('lang-en').addEventListener('click', function() { setLanguage('en'); });
+            document.getElementById('lang-tr').addEventListener('click', function() { setLanguage('tr'); });
+            document.getElementById('lang-en-mobile').addEventListener('click', function() { setLanguage('en'); });
+            document.getElementById('lang-tr-mobile').addEventListener('click', function() { setLanguage('tr'); });
+        });
+    // ...existing code...
+
+        // Counter Animation Script
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16); // 60fps
+            const isPercentage = element.getAttribute('data-count') === '98';
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    if (isPercentage) {
+                        element.textContent = target + '%';
+                    } else {
+                        element.textContent = target + '+';
+                    }
+                    clearInterval(timer);
+                } else {
+                    if (isPercentage) {
+                        element.textContent = Math.floor(start) + '%';
+                    } else {
+                        element.textContent = Math.floor(start) + '+';
+                    }
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for Counter Animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('[data-count]');
+                    counters.forEach(counter => {
+                        if (!counter.classList.contains('animated')) {
+                            const target = parseInt(counter.getAttribute('data-count'));
+                            animateCounter(counter, target);
+                            counter.classList.add('animated');
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.5 // Trigger when 50% of the section is visible
+        });
+
+        // Observe the counter section
+        document.addEventListener('DOMContentLoaded', function() {
+            const counterSection = document.getElementById('counter-section');
+            if (counterSection) {
+                counterObserver.observe(counterSection);
+            }
+        });
+    </script>
+    </div> <!-- End Main Content -->
+</body>
+</html>
