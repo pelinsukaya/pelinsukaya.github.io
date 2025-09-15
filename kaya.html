@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aravind Law Firm - Expert legal services with excellence. Specializing in Family Law, Criminal Law, Real Estate, Business Law, and more.">
+    <meta name="description" content="Kaya Hukuk Bürosu">
     <meta name="keywords" content="law firm, legal services, attorney, lawyer, family law, criminal law, real estate law">
-    <title>Aravind Law Firm - Where Expertise Meets Excellence</title>
+    <title>Kaya Hukuk Bürosu</title>
     <link rel="shortcut icon" href="./Aravind_logo.jpg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -459,6 +459,49 @@
         <div class="loader-text">Loading...</div>
     </div>
 
+    <!-- Disclaimer Popup -->
+    <div class="disclaimer-overlay" id="disclaimerOverlay" style="display: none; opacity: 0; transform: scale(0.8);">
+        <div class="disclaimer-popup">
+            <div class="disclaimer-header">
+                <h2 class="text-2xl font-bold mb-2" 
+                    data-lang-en="Kaya Law - Disclaimer" 
+                    data-lang-tr="Kaya Hukuk - Bilgilendirme">
+                    Kaya Law - Disclaimer
+                </h2>
+                <p class="text-sm opacity-90" 
+                data-lang-en="Please read and accept the following terms" 
+                data-lang-tr="Lütfen aşağıdaki şartları okuyup kabul ediniz">
+                Please read and accept the following terms
+                </p>
+            </div>
+            <div class="disclaimer-content">
+                <p class="mb-4" 
+                data-lang-en="This website has been prepared by KAYA Law Firm in compliance with the Professional Rules and Advertising Ban Rules of the Union of Turkish Bar Associations, for the use of our existing clients and other interested parties who wish to obtain information about KAYA Law Firm. The information on this website is provided solely for informational purposes and should not be regarded as legal opinion. KAYA Law Firm cannot be held responsible for any consequences arising from actions taken based on the publications such as information, articles, and texts provided on this site. Such publications may lose their relevance or validity over time." 
+                data-lang-tr="Bu internet sitesi KAYA Hukuk Bürosu’na ilişkin bilgi edinmek isteyen mevcut müvekkillerimiz ve diğer ilgililerin yararlanması için Türkiye Barolar Birliği’nin Meslek Kurallarına ve Reklam Yasağı Kurallarına uygun olarak hazırlanmıştır. İnternet sitesinde yer alan bilgiler yalnızca bilgi verme amaçlı olup hukuki görüş olarak nitelendirilmemelidir. Sitede sunulmuş olan bilgi, makale ve metin gibi yayınlara dayanılarak hareket edilmesinden dolayı doğan sonuçlardan KAYA Hukuk Bürosu sorumlu değildir. Bu yayınlar güncelliğini ve geçerliliğini yitirebilir.">
+                This website has been prepared by KAYA Law Firm...
+                </p>
+
+                <p class="mb-4" 
+                data-lang-en="The website and the information contained herein do not constitute legal advice or an invitation to establish an attorney-client relationship. Merely contacting KAYA Law Firm through this site, requesting legal services, or giving legal instructions does not, by itself, create an attorney-client relationship. All visitors of this site are deemed to have accepted the terms and conditions set forth in the Terms of Use." 
+                data-lang-tr="İnternet sitesi ve sitede yer alan bilgiler, hukuki görüş verilmesi ya da avukat- müvekkil ilişkisi kurulmasına yönelik bir davet veya öneri niteliğinde değildir. Yalnızca bu site aracılığıyla KAYA Hukuk Bürosu ile iletişime geçilmesi, hukuki hizmet talep edilmesi veya hukuki işlem talimatı verilmesi kendiliğinden avukat – müvekkil ilişkisi kurmaz. Siteyi ziyaret eden tüm ziyaretçiler, Kullanım Şartlarında yer alan şart ve koşulları kabul etmiş sayılırlar.">
+                The website and the information contained herein...
+                </p>
+
+                <p class="mb-4" 
+                data-lang-en="All information, texts, and articles contained on this website, as well as the texts, logos, and designs used in its structure, fall under intellectual property rights. All copyright and usage rights belong to our firm. Copying, reproducing, or using them in any way is strictly prohibited." 
+                data-lang-tr="İnternet sitesinde Fikri mülkiyet hakkı kapsamında yer alan tüm bilgiler, metinler ve makaleler ile sitenin tasarımında kullanılan metinler, logolar site içeriğinin tüm telif ve yararlanma hakları büromuza ait olup, kopyalanması, çoğaltılması ve kullanılması kesinlikle yasaktır.">
+                All information, texts, and articles contained...
+                </p>
+            </div>
+            <div class="disclaimer-buttons">
+                <button class="modern-btn modern-btn-agree" id="agreeBtn" 
+                    data-lang-en="I Read and Accept" 
+                    data-lang-tr="Okudum ve Kabul Ediyorum">
+                    I Read and Accept
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <div class="main-content" id="mainContent">
@@ -470,23 +513,23 @@
                 <div class="flex justify-between items-center py-3">
                     <!-- Logo -->
                     <div class="flex items-center">
-                        <img src="./Aravind_logo.jpg" alt="Aravind Law Firm Logo" class="w-12 h-12 rounded-full mr-3 object-cover">
-                        <div class="text-xl font-bold" data-lang-en="Aravind Law Firm" data-lang-tr="Aravind Hukuk Bürosu">Aravind Law Firm</div>
+                        <!-- <img src="./Aravind_logo.jpg" alt="Kaya Law Firm Logo" class="w-12 h-12 rounded-full mr-3 object-cover">-->
+                        <div class="text-xl font-bold" data-lang-en="Kaya Law Firm" data-lang-tr="Kaya Hukuk Bürosu">Kaya Law Firm</div>
                     </div>
 
                     <!-- Desktop Menu -->
                     <div class="hidden lg:flex items-center space-x-4">
                         <a href="#home" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="Home" data-lang-tr="Ana Sayfa">Home</a>
                         <a href="#about" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="About Us" data-lang-tr="Hakkımızda">About Us</a>
-                        <a href="#practice-areas" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="Practice Areas" data-lang-tr="Uzmanlık Alanları">Practice Areas</a>
-                        <a href="#founder" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="Who Are We" data-lang-tr="Kurucularımız">Who Are We</a>
+                        <a href="#practice-areas" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="Practice Areas" data-lang-tr="Faaliyet Alanlarımız">Practice Areas</a>
+                        <a href="#founder" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="Our Team" data-lang-tr="Ekibimiz">Our Team</a>
                         <a href="#contact" class="hover:text-white hover:scale-105 transition-all duration-300 font-medium py-2 px-3 rounded text-lg" data-lang-en="Contact Us" data-lang-tr="İletişim">Contact Us</a>
                     </div>
 
                     <!-- Language Toggle (hidden on mobile) -->
-                    <div class="ml-4 flex items-center hidden lg:flex">
-                        <button id="lang-en" class="px-3 py-1 rounded bg-navy text-gold font-bold mr-2">EN</button>
-                        <button id="lang-tr" class="px-3 py-1 rounded bg-gold text-navy font-bold">TR</button>
+                    <div class="flex items-center hidden lg:flex">
+                        <button id="lang-tr-mobile" class="px-3 py-1 rounded bg-navy text-gold font-bold">TR</button>
+                        <button id="lang-en-mobile" class="px-3 py-1 rounded bg-gold text-navy font-bold mr-2">EN</button>
                     </div>
 
                     <!-- Mobile Menu Button -->
@@ -499,12 +542,12 @@
                 <div id="mobile-menu" class="hidden lg:hidden pb-4">
                     <a href="#home" class="block py-2 hover:text-white transition" data-lang-en="Home" data-lang-tr="Ana Sayfa">Home</a>
                     <a href="#about" class="block py-2 hover:text-white transition" data-lang-en="About Us" data-lang-tr="Hakkımızda">About Us</a>
-                    <a href="#practice-areas" class="block py-2 hover:text-white transition" data-lang-en="Practice Areas" data-lang-tr="Uzmanlık Alanları">Practice Areas</a>
-                    <a href="#founder" class="block py-2 hover:text-white transition" data-lang-en="Who Are We" data-lang-tr="Kurucularımız">Who Are We</a>
+                    <a href="#practice-areas" class="block py-2 hover:text-white transition" data-lang-en="Practice Areas" data-lang-tr="Faaliyet Alanlarımız">Practice Areas</a>
+                    <a href="#founder" class="block py-2 hover:text-white transition" data-lang-en="Our Team" data-lang-tr="Ekibimiz">Our Team</a>
                     <a href="#contact" class="block py-2 hover:text-white transition" data-lang-en="Contact Us" data-lang-tr="İletişim">Contact Us</a>
                     <div class="flex items-center mt-4">
-                        <button id="lang-en-mobile" class="px-3 py-1 rounded bg-navy text-gold font-bold mr-2">EN</button>
-                        <button id="lang-tr-mobile" class="px-3 py-1 rounded bg-gold text-navy font-bold">TR</button>
+                        <button id="lang-tr-mobile-btn" class="px-3 py-1 rounded bg-navy text-gold font-bold">TR</button>
+                        <button id="lang-en-mobile-btn" class="px-3 py-1 rounded bg-gold text-navy font-bold mr-2">EN</button>
                     </div>
                 </div>
             </div>
@@ -512,7 +555,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative h-screen mt-16 md:mt-16 overflow-hidden">
+    <section id="home" class="relative h-screen mt-10 md:mt-10 overflow-hidden">
         <div class="slider-container h-full">
             <div class="slider-track h-full" id="hero-slider">
                 <!-- Slide 1 -->
@@ -531,7 +574,7 @@
                             <p class="hero-description text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-200 leading-relaxed max-w-3xl mx-auto animate-fade-in-up animation-delay-600" data-lang-en="Providing exceptional legal services with integrity, professionalism, and dedication to our clients' success." data-lang-tr="Müşterilerimizin başarısı için dürüstlük, profesyonellik ve adanmışlık ile olağanüstü hukuk hizmetleri sunuyoruz.">Providing exceptional legal services with integrity, professionalism, and dedication to our clients' success.</p>
                             <button onclick="document.getElementById('contact').scrollIntoView()"
                                     class="modern-btn modern-btn-lg animate-fade-in-up animation-delay-900 w-full sm:w-auto"
-                                    data-lang-en="Consultation" data-lang-tr="Danışmanlık">Consultation</button>
+                                    data-lang-en="Get Started Today" data-lang-tr="Hemen Başlayın">Hemen Başlayın</button>
                         </div>
                     </div>
                 </div>
@@ -553,7 +596,7 @@
                                 <button onclick="document.getElementById('contact').scrollIntoView()"
                                         class="modern-btn modern-btn-lg w-full sm:w-auto"
                                         data-lang-en="Get Started Today" data-lang-tr="Hemen Başlayın">
-                                    Get Started Today
+                                    Hemen Başlayın
                                 </button>
                         </div>
                     </div>
@@ -561,10 +604,10 @@
             </div>
 
             <!-- Navigation Arrows -->
-            <button class="modern-btn modern-btn-circle absolute left-6 top-1/2 transform -translate-y-1/2 z-30 group hidden md:flex" onclick="previousSlide()">
+            <button class="modern-btn modern-btn-circle absolute left-6 top-1/2 transform z-30 group hidden md:flex" onclick="previousSlide()">
                 <i class="fas fa-chevron-left text-xl group-hover:scale-110 transition-transform"></i>
             </button>
-            <button class="modern-btn modern-btn-circle absolute right-6 top-1/2 transform -translate-y-1/2 z-30 group hidden md:flex" onclick="nextSlide()">
+            <button class="modern-btn modern-btn-circle absolute right-6 top-1/2 transform z-30 group hidden md:flex" onclick="nextSlide()">
                 <i class="fas fa-chevron-right text-xl group-hover:scale-110 transition-transform"></i>
             </button>
 
@@ -620,7 +663,7 @@
     <section id="practice-areas" class="py-20 bg-gray-50">
         <div class="flex justify-center px-4">
             <div class="max-w-6xl w-full bg-white rounded-2xl shadow-2xl p-12 scroll-animate">
-                <h2 class="text-4xl font-bold text-center text-navy mb-12 scroll-animate" data-lang-en="Our Practice Areas" data-lang-tr="Uzmanlık Alanlarımız">Our Practice Areas</h2>
+                <h2 class="text-4xl font-bold text-center text-navy mb-12 scroll-animate" data-lang-en="Our Practice Areas" data-lang-tr="Faaliyet Alanlarımız">Our Practice Areas</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
                     <div class="bg-gradient-to-br from-white to-gray-50 p-8 md:p-8 rounded-lg md:rounded-xl shadow-lg card-hover text-center border-2 border-gray-200 hover:border-gold scroll-animate transition-all duration-300 aspect-square md:aspect-auto">
                         <div class="w-20 h-20 md:w-16 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-6">
@@ -679,30 +722,26 @@
     <section id="founder" class="py-20">
         <div class="flex justify-center px-4">
             <div class="max-w-6xl w-full bg-white rounded-2xl shadow-2xl p-12 scroll-animate">
-                <h2 class="text-4xl font-bold text-center text-navy mb-12 scroll-animate" data-lang-en="Who Are We" data-lang-tr="Biz Kimiz">Who Are We</h2>
+                <h2 class="text-4xl font-bold text-center text-navy mb-12 scroll-animate" data-lang-en="Our Team" data-lang-tr="Ekibimiz">Ekibimiz</h2>
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <!-- Founder Profile -->
                     <div class="text-center scroll-animate">
                         <div class="w-72 h-72 mx-auto mb-8 relative group cursor-pointer">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                                 alt="Ventrapragada Aravind"
-                                 class="w-full h-full object-cover rounded-full shadow-xl border-4 border-gold transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
-                            <div class="absolute inset-0 rounded-full bg-gradient-to-t from-navy/20 to-transparent transition-all duration-500"></div>
+                           <img src="assets/images/alper_kaya.jpeg"
+                            alt="Alper Kaya"
+                            class="w-full h-full object-cover rounded-full shadow-xl border-4 border-gold transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-t from-navy/20 to-transparent transition-all duration-500"></div>
                         </div>
                         <div class="flex justify-center space-x-4 mb-6">
-                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
-                                <i class="fas fa-award text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
-                            </div>
-                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
-                                <i class="fas fa-graduation-cap text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
-                            </div>
-                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
-                                <i class="fas fa-balance-scale text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
-                            </div>
+                            <a href="https://www.linkedin.com/in/alper-kaya-12456539/?originalSubdomain=tr" target="_blank" rel="noopener noreferrer">
+                                <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
+                                    <i class="fab fa-linkedin-in text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="scroll-animate">
-                        <h3 class="text-3xl font-bold text-navy mb-6" data-lang-en="Ventrapragada Aravind" data-lang-tr="Ventrapragada Aravind">Ventrapragada Aravind</h3>
+                        <h3 class="text-3xl font-bold text-navy mb-6" data-lang-en="Alper Kaya" data-lang-tr="Alper Kaya">Alper Kaya</h3>
                         <p class="text-lg text-gray-700 mb-6 leading-relaxed" data-lang-en="With over 15 years of experience in the legal field, Aravind Kumar founded this firm with a vision to provide accessible, high-quality legal services to individuals and businesses. His expertise spans multiple practice areas, and he is known for his strategic approach and dedication to client success." data-lang-tr="Hukuk alanında 15 yılı aşkın deneyime sahip olan Aravind Kumar, bu firmayı bireylere ve işletmelere erişilebilir, yüksek kaliteli hukuk hizmetleri sunma vizyonuyla kurdu. Uzmanlığı birçok alana yayılır ve stratejik yaklaşımı ile müşteri başarısına olan bağlılığıyla tanınır.">
                             With over 15 years of experience in the legal field, Aravind Kumar founded this firm with a vision
                             to provide accessible, high-quality legal services to individuals and businesses. His expertise spans
@@ -721,25 +760,21 @@
                     <!-- New Person Profile -->
                     <div class="text-center scroll-animate">
                         <div class="w-72 h-72 mx-auto mb-8 relative group cursor-pointer">
-                            <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                                 alt="Priya Sharma"
-                                 class="w-full h-full object-cover rounded-full shadow-xl border-4 border-gold transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+                           <img src="assets/images/pelinsu_kaya.jpeg"
+                            alt="Pelinsu Kaya"
+                            class="w-full h-full object-cover rounded-full shadow-xl border-4 border-gold transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-t from-navy/20 to-transparent transition-all duration-500"></div>
                         </div>
                         <div class="flex justify-center space-x-4 mb-6">
-                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
-                                <i class="fas fa-award text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
-                            </div>
-                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
-                                <i class="fas fa-graduation-cap text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
-                            </div>
-                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
-                                <i class="fas fa-balance-scale text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
-                            </div>
+                            <a href="https://www.linkedin.com/in/pelinsu-kaya-a8ba1521a/?originalSubdomain=tr" target="_blank" rel="noopener noreferrer">
+                                <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center hover:bg-gold/20 hover:scale-110 transition-all duration-300 cursor-pointer">
+                                    <i class="fab fa-linkedin-in text-gold text-xl hover:scale-110 transition-transform duration-300"></i>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="scroll-animate">
-                        <h3 class="text-3xl font-bold text-navy mb-6" data-lang-en="Priya Sharma" data-lang-tr="Priya Sharma">Priya Sharma</h3>
+                        <h3 class="text-3xl font-bold text-navy mb-6" data-lang-en="Pelinsu Kaya" data-lang-tr="Pelinsu Kaya">Pelinsu Kaya</h3>
                         <p class="text-lg text-gray-700 mb-6 leading-relaxed" data-lang-en="Priya Sharma is a senior partner at Aravind Law Firm, specializing in corporate and family law. With over 10 years of experience, Priya is recognized for her client advocacy and innovative legal solutions." data-lang-tr="Priya Sharma, Aravind Hukuk Bürosu'nda kıdemli ortaktır ve kurumsal ile aile hukuku alanında uzmandır. 10 yılı aşkın deneyimiyle, Priya müşteri savunuculuğu ve yenilikçi hukuk çözümleriyle tanınır.">
                             Priya Sharma is a senior partner at Aravind Law Firm, specializing in corporate and family law. With over 10 years of experience, Priya is recognized for her client advocacy and innovative legal solutions.
                         </p>
@@ -785,7 +820,7 @@
                                 </div>
                                 <div>
                                     <div class="font-semibold" data-lang-en="Call Us" data-lang-tr="Bizi Arayın">Call Us</div>
-                                    <div class="text-gray-300">+919100499431</div>
+                                    <div class="text-gray-300">+909100499431</div>
                                 </div>
                             </div>
                             <div class="flex items-center">
@@ -794,7 +829,7 @@
                                 </div>
                                 <div>
                                     <div class="font-semibold" data-lang-en="Email Us" data-lang-tr="E-posta Gönderin">Email Us</div>
-                                    <div class="text-gray-300">contact@aravindlawfirm.com</div>
+                                    <div class="text-gray-300"><a href="mailto:contact@aravindlawfirm.com" class="text-gray-300 hover:underline">contact@aravindlawfirm.com</a></div>
                                 </div>
                             </div>
                             <div class="flex items-center">
@@ -815,16 +850,16 @@
                             <div class="grid md:grid-cols-2 gap-6 mb-6">
                                 <div>
                                     <label class="block text-white font-semibold mb-2" data-lang-en="Name *" data-lang-tr="Ad *">Name *</label>
-                                    <input type="text" id="name" required class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300" placeholder="Your Name" data-lang-en="Your Name" data-lang-tr="Adınız">
+                                    <input type="text" id="name" required class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300">
                                 </div>
                                 <div>
                                     <label class="block text-white font-semibold mb-2" data-lang-en="Email *" data-lang-tr="E-posta *">Email *</label>
-                                    <input type="email" id="email" required class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300" placeholder="your@email.com" data-lang-en="your@email.com" data-lang-tr="eposta@adresiniz.com">
+                                    <input type="email" id="email" required class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300">
                                 </div>
                             </div>
                             <div class="mb-6">
                                 <label class="block text-white font-semibold mb-2" data-lang-en="Phone *" data-lang-tr="Telefon *">Phone *</label>
-                                <input type="tel" id="phone" required class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300" placeholder="+91 XXXXX XXXXX" data-lang-en="+91 XXXXX XXXXX" data-lang-tr="+90 XXXXX XXXXX">
+                                <input type="tel" id="phone" required class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300">
                             </div>
                             <div class="mb-6">
                                 <label class="block text-white font-semibold mb-2" data-lang-en="Legal Matter" data-lang-tr="Hukuki Konu">Legal Matter</label>
@@ -840,10 +875,10 @@
                             </div>
                             <div class="mb-8">
                                 <label class="block text-white font-semibold mb-2" data-lang-en="Message" data-lang-tr="Mesaj">Message</label>
-                                <textarea id="message" rows="4" class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300" placeholder="Tell us about your legal needs..." data-lang-en="Tell us about your legal needs..." data-lang-tr="Hukuki ihtiyaçlarınızı anlatın..."></textarea>
+                                <textarea id="message" rows="4" class="w-full p-4 bg-white/10 border border-white/30 rounded-lg focus:border-gold focus:outline-none text-white placeholder-gray-300"></textarea>
                             </div>
                             <button type="submit" class="modern-btn modern-btn-lg modern-btn-full modern-btn-whatsapp flex items-center justify-center" data-lang-en="Send via WhatsApp" data-lang-tr="WhatsApp ile Gönder">
-                                <i class="fab fa-whatsapp mr-3 text-2xl"></i>
+                                <i class="fab fa-whatsapp mr-2 text-xl"></i>
                                 Send via WhatsApp
                             </button>
                         </form>
@@ -894,13 +929,14 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-                <p data-lang-en="&copy; 2025 Aravind Law Firm. All Rights Reserved." data-lang-tr="&copy; 2025 Aravind Hukuk Bürosu. Tüm Hakları Saklıdır.">&copy; 2025 Aravind Law Firm. All Rights Reserved.</p>
+                <p data-lang-en="&copy; 2025 Kaya Hukuk Bürosu. Tüm Hakları Saklıdır." data-lang-tr="&copy; 2025 Kaya Hukuk Bürosu. Tüm Hakları Saklıdır.">&copy; 2025 Kaya Law Firm. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919100499431?text=Hello%20Aravind%20Law%20Firm%21%20%F0%9F%8F%9B%EF%B8%8F%0A%0AI%20am%20interested%20in%20your%20legal%20services%20and%20would%20like%20to%20schedule%20a%20consultation.%20%0A%0ACould%20you%20please%20provide%20me%20with%20more%20information%20about%3A%0A%E2%80%A2%20Your%20practice%20areas%0A%E2%80%A2%20Consultation%20process%0A%E2%80%A2%20Fee%20structure%0A%0AThank%20you%20for%20your%20time.%20I%20look%20forward%20to%20hearing%20from%20you.%0A%0ABest%20regards" target="_blank"
+     <!--todo: whatsapp mesaj değiştir-->
+    <a href="https://wa.me/905345553543?text=Hello%20Kaya%20Law%20Firm%21%20%F0%9F%8F%9B%EF%B8%8F%0A%0AI%20am%20interested%20in%20your%20legal%20services%20and%20would%20like%20to%20schedule%20a%20consultation.%20%0A%0ACould%20you%20please%20provide%20me%20with%20more%20information%20about%3A%0A%E2%80%A2%20Your%20practice%20areas%0A%E2%80%A2%20Consultation%20process%0A%E2%80%A2%20Fee%20structure%0A%0AThank%20you%20for%20your%20time.%20I%20look%20forward%20to%20hearing%20from%20you.%0A%0ABest%20regards" target="_blank"
        class="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full shadow-2xl hover:from-green-600 hover:to-green-700 hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center animate-pulse">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
@@ -912,6 +948,48 @@
 
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        const enButtons = [document.getElementById('lang-en-mobile'), document.getElementById('lang-en-mobile-btn')];
+        const trButtons = [document.getElementById('lang-tr-mobile'), document.getElementById('lang-tr-mobile-btn')];
+
+        function setActiveLang(lang) {
+            if (lang === 'en') {
+                enButtons.forEach(btn => {
+                    btn.classList.add('bg-navy', 'text-gold');
+                    btn.classList.remove('bg-gold', 'text-navy');
+                });
+                trButtons.forEach(btn => {
+                    btn.classList.add('bg-gold', 'text-navy');
+                    btn.classList.remove('bg-navy', 'text-gold');
+                });
+            } else {
+                trButtons.forEach(btn => {
+                    btn.classList.add('bg-navy', 'text-gold');
+                    btn.classList.remove('bg-gold', 'text-navy');
+                });
+                enButtons.forEach(btn => {
+                    btn.classList.add('bg-gold', 'text-navy');
+                    btn.classList.remove('bg-navy', 'text-gold');
+                });
+            }
+
+             // Switch text content across the site
+            document.querySelectorAll('[data-lang-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-lang-${lang}`);
+            });
+
+            // Optional: store selected language in localStorage
+            localStorage.setItem('site-lang', lang);
+        }
+
+        enButtons.forEach(btn => btn.addEventListener('click', () => setActiveLang('en')));
+        trButtons.forEach(btn => btn.addEventListener('click', () => setActiveLang('tr')));
+            
+        // Load saved language (default TR if none saved)
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('site-lang') || 'tr';
+            setActiveLang(savedLang);
         });
 
         // Hero Slider
@@ -955,8 +1033,8 @@
         // Initialize indicators
         updateIndicators();
 
-        // Auto-slide every 10 seconds
-        setInterval(nextSlide, 10000);
+        // Auto-slide every 15 seconds
+        setInterval(nextSlide, 15000);
 
         // Counter Animation
         function animateCounters() {
@@ -1032,8 +1110,8 @@
             📧 *Email:* ${email}
             📱 *Phone:* ${phone}
             � *Message:* ${message}`;
-
-            const whatsappURL = `https://wa.me/919100499431?text=${encodeURIComponent(whatsappMessage)}`;
+            // todo: whatsapp mesaj değiştir
+            const whatsappURL = `https://wa.me/905345553543?text=${encodeURIComponent(whatsappMessage)}`;
 
             window.open(whatsappURL, '_blank');
         });
@@ -1067,12 +1145,69 @@
                     el.textContent = lang === 'tr' ? (el.getAttribute('data-lang-tr') || el.textContent) : el.getAttribute('data-lang-en');
                 });
             }
+            // Set Turkish as default language on page load
+            setLanguage('tr');
             document.getElementById('lang-en').addEventListener('click', function() { setLanguage('en'); });
             document.getElementById('lang-tr').addEventListener('click', function() { setLanguage('tr'); });
             document.getElementById('lang-en-mobile').addEventListener('click', function() { setLanguage('en'); });
             document.getElementById('lang-tr-mobile').addEventListener('click', function() { setLanguage('tr'); });
         });
-    // ...existing code...
+
+        // Disclaimer Popup Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const disclaimerOverlay = document.getElementById('disclaimerOverlay');
+            const agreeBtn = document.getElementById('agreeBtn');
+            const disagreeBtn = document.getElementById('disagreeBtn');
+            const loader = document.getElementById('loader');
+            const mainContent = document.getElementById('mainContent');
+
+            // Check if user has already accepted disclaimer
+            const hasAcceptedDisclaimer = localStorage.getItem('disclaimerAccepted');
+
+            if (!hasAcceptedDisclaimer) {
+                // Show disclaimer popup after a short delay
+                setTimeout(() => {
+                    disclaimerOverlay.style.display = 'flex';
+                    disclaimerOverlay.style.opacity = '1';
+                    disclaimerOverlay.style.transform = 'scale(1)';
+                }, 500);
+            } else {
+                // If already accepted, hide disclaimer and proceed with normal loading
+                disclaimerOverlay.style.display = 'none';
+                proceedWithLoading();
+            }
+
+            // Handle Agree button
+            agreeBtn.addEventListener('click', function() {
+                localStorage.setItem('disclaimerAccepted', 'true');
+                // Hide the disclaimer popup with animation
+                disclaimerOverlay.style.opacity = '0';
+                disclaimerOverlay.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    disclaimerOverlay.style.display = 'none';
+                }, 300);
+                proceedWithLoading();
+            });
+
+            // Handle Disagree button
+            disagreeBtn.addEventListener('click', function() {
+                // Close the tab/window
+                window.close();
+                // Fallback: redirect to a blank page if window.close() doesn't work
+                setTimeout(() => {
+                    window.location.href = 'about:blank';
+                }, 100);
+            });
+
+            // Function to proceed with normal loading
+            function proceedWithLoading() {
+                // Hide loader and show main content
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                    mainContent.classList.add('loaded');
+                }, 1000); // Show loader for at least 1 second
+            }
+        });
 
         // Counter Animation Script
         function animateCounter(element, target, duration = 2000) {
